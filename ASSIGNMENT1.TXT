@@ -1,0 +1,227 @@
+-[QUERY1]-
+
+SELECT *
+FROM emp
+WHERE job IN ('CLERK');
+
+-[QUERY2]-
+
+SELECT *
+FROM emp
+WHERE job IN ('CLERK','MANAGER');
+
+-[QUERY3]-
+
+SELECT currentdate=GETDATE()
+
+-[QUERY4]-
+
+SELECT ename,sal
+FROM emp
+WHERE sal BETWEEN 500 AND 1000;
+
+-[QUERY5]-
+
+SELECT ename , hiredate
+FROM emp
+WHERE hiredate BETWEEN '12-01-81' AND '12-31-81';
+
+-[QUERY6]-
+
+SELECT ename,sal
+FROM  emp
+WHERE sal NOT BETWEEN '1000'AND'2500';
+
+-[QUERY7]-
+
+SELECT ename ,sal
+FROM emp
+WHERE sal IN(800,950,3000,5000);
+
+-[QUERY8]-
+
+SELECT ename 
+FROM emp
+WHERE ename  LIKE '_L%';
+
+-[QUERY9]-
+
+SELECT ename 
+FROM emp
+WHERE ename  LIKE '___D%';
+
+10-[QUERY10]-
+
+SELECT ENAME
+FROM emp
+WHERE dATALENGTH(ENAME)= 5;
+
+-[QUERY11]-
+
+SELECT *
+FROM emp
+WHERE ename LIKE ('T%')AND ename LIKE('%R');
+
+-[QUERY12]-
+
+SELECT	empno ,ename
+FROM emp
+WHERE ename LIKE ('%a%');
+
+-[QUERY13]-
+
+SELECT ename , hiredate
+FROM emp
+WHERE day(hiredate)<19;
+
+-[QUERY14]-
+
+SELECT empno ,ename
+FROM emp
+WHERE ename='james'
+
+-[QUERY15]-
+
+SELECT empno ,ename,sal
+FROM emp
+WHERE ename='king'
+
+-[QUERY16]-
+
+SELECT empno ,ename,job
+FROM emp
+WHERE job='president' 
+
+-[QUERY17]-
+
+SELECT *
+FROM emp
+WHERE job='manager'
+
+-[QUERY18]-
+
+SELECT *
+FROM emp
+WHERE comm  is not null
+
+-[QUERY19]-
+
+SELECT  *
+FROM emp
+WHERE hiredate<'01-apr-81'
+
+-[QUERY20]-
+
+SELECT  empno,ename , sal
+FROM emp
+WHERE ename in('king','blake','ford','smith')
+
+-[QUERY22]-
+
+SELECT empno , ename , sal
+FROM emp
+WHERE sal<3500;
+
+-[QUERY23]-
+
+SELECT *
+FROM emp
+WHERE job='CLERK'
+
+-[QUERY24]-
+
+SELECT empno, ename ,sal*12 AS 'ANNUAL SALARY'
+FROM emp
+
+-[QUERY25]-
+
+SELECT ename ,sal+(sal*20/100)AS 'monthly hike',(sal+(sal*20/100))*12 AS 'ANNUAL SALARY'
+FROM emp
+WHERE ename='ford';
+
+-[QUERY26]-
+
+SELECT deptno , sum(sal)AS totalsal
+FROM emp
+GROUP BY deptno
+
+-[QUERY27]-
+
+SELECT deptno , MIN(sal)AS LOWESTSAL
+FROM emp
+WHERE DEPTNO=10
+GROUP BY deptno
+
+-[QUERY28]-
+
+SELECT  job , avg(sal) AS 'AVERAGE'
+FROM emp 
+WHERE JOB='manager'
+GROUP BY JOB
+
+-[QUERY29]-
+
+SELECT job ,sum(sal) as 'TOTALSAL'
+FROM emp
+WHERE job='salesman'
+GROUP BY job
+
+-[QUERY30]-
+
+SELECT deptno , avg(sal)AS 'LOWEST AVG SAL'
+FROM emp
+GROUP BY deptno
+having avg(sal)<(select avg(sal)from emp);
+
+-[QUERY31]-
+
+SELECT job , count(*) AS Persons
+from emp
+group by job
+
+-[QUERY32]-
+
+SELECT job, MAX(sal) AS 'HIGHEST SAL'
+FROM emp
+WHERE job ='ANALYST'
+group by job
+
+-[QUERY33]-
+
+SELECT  MAX(COMM) AS 'Highest_commision'
+FROM emp;
+
+-[QUERY34]-
+
+SELECT COUNT(DEPTNO)AS'no.of dept'
+FROM DEPT
+
+-[QUERY35]-
+
+SELECT ename 
+FROM emp
+WHERE ename like '__l%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
